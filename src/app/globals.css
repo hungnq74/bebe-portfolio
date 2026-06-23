@@ -1,0 +1,297 @@
+@import "tailwindcss";
+
+@theme {
+  --color-paper: #f7eedf;
+  --color-paper-deep: #eadbc5;
+  --color-cream: #fffaf0;
+  --color-ink: #371918;
+  --color-berry: #55201f;
+  --color-blue: #2f6f9f;
+  --color-moss: #56683b;
+  --color-butter: #e3bc62;
+  --color-stamp: #b86b51;
+  --color-string: #7b2325;
+  --color-charcoal: #221b18;
+  --font-sans: var(--font-inter);
+  --font-display: var(--font-bebas);
+  --font-serif: var(--font-fraunces);
+  --font-hand: var(--font-caveat);
+}
+
+:root {
+  --page-max: 1180px;
+  --shadow-paper: 0 18px 40px rgba(55, 25, 24, 0.14);
+  --shadow-paper-strong: 0 28px 70px rgba(55, 25, 24, 0.22);
+  color: var(--color-ink);
+  background: var(--color-paper);
+}
+
+* {
+  box-sizing: border-box;
+  letter-spacing: 0;
+}
+
+html {
+  background: var(--color-paper);
+  scroll-padding-top: 92px;
+}
+
+body {
+  min-height: 100svh;
+  margin: 0;
+  overflow-x: hidden;
+  background:
+    linear-gradient(180deg, rgba(255, 250, 240, 0.92), rgba(247, 238, 223, 0.96)),
+    url("/images/generated/paper-stamp-texture.png");
+  background-attachment: fixed;
+  background-size: cover;
+  color: var(--color-ink);
+  font-family: var(--font-inter), system-ui, sans-serif;
+  text-rendering: geometricPrecision;
+}
+
+::selection {
+  background: rgba(47, 111, 159, 0.22);
+}
+
+.font-display {
+  font-family: var(--font-bebas), Impact, sans-serif;
+}
+
+.font-serif {
+  font-family: var(--font-fraunces), Georgia, serif;
+}
+
+.font-hand {
+  font-family: var(--font-caveat), "Comic Sans MS", cursive;
+}
+
+.section-shell {
+  width: min(var(--page-max), calc(100% - 32px));
+  margin-inline: auto;
+}
+
+.paper-edge {
+  position: relative;
+}
+
+.paper-edge::before {
+  position: absolute;
+  inset: -1px 0 auto;
+  height: 10px;
+  pointer-events: none;
+  content: "";
+  background-image: linear-gradient(135deg, transparent 45%, rgba(55, 25, 24, 0.16) 46% 54%, transparent 55%);
+  background-size: 18px 10px;
+  opacity: 0.35;
+}
+
+.hero-scene {
+  position: relative;
+  min-height: 78svh;
+  overflow: hidden;
+  isolation: isolate;
+  background: #f8efe1;
+}
+
+.hero-scene::before {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  content: "";
+  background:
+    linear-gradient(90deg, rgba(248, 239, 225, 0.97) 0%, rgba(248, 239, 225, 0.78) 42%, rgba(248, 239, 225, 0.22) 72%),
+    radial-gradient(circle at 18% 25%, rgba(227, 188, 98, 0.2), transparent 26%),
+    url("/images/generated/paper-stamp-texture.png");
+  background-size: cover, 900px 900px, cover;
+  mix-blend-mode: normal;
+}
+
+.hero-image {
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+}
+
+.hero-image img {
+  object-fit: cover;
+  object-position: center right;
+}
+
+.stamp-ring {
+  border: 1px dashed rgba(184, 107, 81, 0.62);
+  border-radius: 999px;
+  color: var(--color-stamp);
+}
+
+.paper-tag {
+  position: relative;
+  border: 1px solid rgba(55, 25, 24, 0.14);
+  background:
+    linear-gradient(145deg, rgba(255, 250, 240, 0.96), rgba(241, 228, 208, 0.96)),
+    url("/images/generated/paper-stamp-texture.png");
+  background-size: cover;
+  box-shadow: var(--shadow-paper-strong);
+  clip-path: polygon(12% 0, 88% 0, 100% 13%, 100% 100%, 0 100%, 0 13%);
+}
+
+.paper-tag::before {
+  position: absolute;
+  top: 18px;
+  left: 50%;
+  z-index: 2;
+  width: 34px;
+  height: 34px;
+  content: "";
+  background:
+    radial-gradient(circle, rgba(255, 250, 240, 1) 0 38%, transparent 39%),
+    radial-gradient(circle, #7b2325 0 52%, #3f1716 53% 100%);
+  border-radius: 999px;
+  box-shadow: inset 0 1px 2px rgba(255, 255, 255, 0.55);
+  transform: translateX(-50%);
+}
+
+.paper-tag::after {
+  position: absolute;
+  top: -70px;
+  left: 50%;
+  width: 84px;
+  height: 112px;
+  pointer-events: none;
+  content: "";
+  border-left: 8px solid var(--color-string);
+  border-top: 8px solid var(--color-string);
+  border-radius: 58% 42% 0 0;
+  transform: translateX(-15%) rotate(-8deg);
+  opacity: 0.9;
+}
+
+.case-tag {
+  --tag-bg: #fff8e9;
+  --tag-ink: #371918;
+  --tag-accent: #2f6f9f;
+  position: relative;
+  min-height: 308px;
+  overflow: hidden;
+  color: var(--tag-ink);
+  background:
+    linear-gradient(180deg, color-mix(in srgb, var(--tag-bg) 96%, white), var(--tag-bg)),
+    url("/images/generated/paper-stamp-texture.png");
+  background-size: cover;
+  border: 1px solid color-mix(in srgb, var(--tag-ink) 18%, transparent);
+  box-shadow: var(--shadow-paper);
+  isolation: isolate;
+}
+
+.case-tag::before {
+  position: absolute;
+  top: 12px;
+  left: 50%;
+  z-index: 5;
+  width: 25px;
+  height: 25px;
+  content: "";
+  background:
+    radial-gradient(circle, transparent 0 37%, rgba(255, 250, 240, 0.95) 39% 44%, color-mix(in srgb, var(--tag-accent) 65%, #7b2325) 45% 100%);
+  border-radius: 999px;
+  box-shadow: 0 3px 7px rgba(55, 25, 24, 0.18);
+  transform: translateX(-50%);
+}
+
+.case-tag::after {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  content: "";
+  background: url("/images/generated/paper-stamp-texture.png");
+  background-size: cover;
+  mix-blend-mode: multiply;
+  opacity: 0.16;
+}
+
+.case-tag-ticket {
+  border-radius: 24px;
+  clip-path: polygon(0 6%, 12% 0, 88% 0, 100% 6%, 100% 94%, 88% 100%, 12% 100%, 0 94%);
+}
+
+.case-tag-arch {
+  border-radius: 92px 92px 24px 24px;
+}
+
+.case-tag-scallop {
+  border-radius: 38px;
+  clip-path: polygon(10% 0, 22% 4%, 34% 0, 46% 4%, 58% 0, 70% 4%, 82% 0, 94% 7%, 100% 19%, 96% 31%, 100% 43%, 96% 55%, 100% 67%, 96% 79%, 100% 91%, 90% 100%, 10% 100%, 0 91%, 4% 79%, 0 67%, 4% 55%, 0 43%, 4% 31%, 0 19%);
+}
+
+.case-tag-notched {
+  border-radius: 18px;
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 52% 94%, 0 100%);
+}
+
+.case-tag-dark {
+  box-shadow: 0 24px 60px rgba(32, 20, 42, 0.24);
+}
+
+.case-media {
+  background-image: var(--case-image);
+  background-size: 300% 200%;
+  background-position: var(--case-position);
+}
+
+.drawer-backdrop {
+  background:
+    radial-gradient(circle at 20% 20%, rgba(227, 188, 98, 0.18), transparent 30%),
+    rgba(30, 18, 16, 0.48);
+  backdrop-filter: blur(12px);
+}
+
+.ingredient-track {
+  animation: ingredient-scroll 26s linear infinite;
+}
+
+@keyframes ingredient-scroll {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@media (max-width: 720px) {
+  .hero-scene {
+    min-height: 78svh;
+  }
+
+  .hero-scene::before {
+    background:
+      linear-gradient(180deg, rgba(248, 239, 225, 0.96) 0%, rgba(248, 239, 225, 0.88) 58%, rgba(248, 239, 225, 0.45) 100%),
+      url("/images/generated/paper-stamp-texture.png");
+  }
+
+  .hero-image img {
+    object-position: 88% center;
+  }
+
+  .case-tag {
+    min-height: 286px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  .ingredient-track {
+    animation: none;
+  }
+}
