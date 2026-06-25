@@ -8,24 +8,22 @@ import { ContactPanel } from "@/components/contact-panel";
 import { Footer } from "@/components/footer";
 import { GrowthIngredients } from "@/components/growth-ingredients";
 import { HeroBakeryScene } from "@/components/hero-bakery-scene";
-import { PortfolioTagMenu } from "@/components/portfolio-tag-menu";
-import { SignatureRecipesIntro } from "@/components/signature-recipes-intro";
+import { PrimaryJobsSection } from "@/components/primary-jobs-section";
 import { SiteNav } from "@/components/site-nav";
 
 export function PortfolioLanding() {
   const [selectedCase, setSelectedCase] = useState<CaseStudy | null>(null);
 
   return (
-    <main className="min-h-screen overflow-hidden">
+    <main className="min-h-screen">
       <SiteNav />
       <HeroBakeryScene />
       <GrowthIngredients />
       <BehindBaker />
-      <SignatureRecipesIntro />
-      <PortfolioTagMenu
+      <PrimaryJobsSection
         cases={caseStudies}
-        onSelect={setSelectedCase}
-        selectedId={selectedCase?.id}
+        onSelectCase={setSelectedCase}
+        selectedCaseId={selectedCase?.id}
       />
       <ContactPanel />
       <Footer />

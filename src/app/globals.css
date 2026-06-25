@@ -268,17 +268,92 @@ body {
 }
 
 .today-special-tag {
+  display: grid;
+  place-items: center;
   filter: drop-shadow(0 26px 54px rgba(55, 25, 24, 0.18));
+  isolation: isolate;
 }
 
-.today-special-tag::before {
+.today-special-paper-tag {
+  position: relative;
+  width: min(100%, 420px);
+  aspect-ratio: 0.68;
+  border: 1px solid rgba(55, 25, 24, 0.12);
+  border-radius: 42px 42px 28px 28px;
+  background:
+    linear-gradient(145deg, rgba(255, 250, 240, 0.96), rgba(234, 219, 197, 0.88)),
+    url("/images/generated/paper-stamp-texture.png");
+  background-size: cover;
+  box-shadow: 0 24px 58px rgba(55, 25, 24, 0.16);
+}
+
+.today-special-paper-tag::before {
   position: absolute;
-  inset: 13% 17% 8%;
-  z-index: -1;
+  inset: 12px;
+  pointer-events: none;
   content: "";
-  border-radius: 34px;
-  background: rgba(255, 250, 240, 0.52);
-  box-shadow: 0 22px 52px rgba(55, 25, 24, 0.15);
+  border: 1px dashed rgba(55, 25, 24, 0.14);
+  border-radius: 34px 34px 22px 22px;
+}
+
+.today-special-eyelet {
+  position: absolute;
+  top: 28px;
+  left: 50%;
+  z-index: 3;
+  width: 48px;
+  height: 48px;
+  border: 13px solid var(--color-string);
+  border-radius: 999px;
+  background: rgba(255, 250, 240, 0.9);
+  box-shadow:
+    inset 0 2px 4px rgba(55, 25, 24, 0.22),
+    0 4px 10px rgba(55, 25, 24, 0.14);
+  transform: translateX(-50%);
+}
+
+.today-special-string {
+  position: absolute;
+  top: -70px;
+  left: 50%;
+  z-index: 1;
+  width: 96px;
+  height: 130px;
+  pointer-events: none;
+  border-left: 7px solid var(--color-string);
+  border-top: 7px solid var(--color-string);
+  border-radius: 70% 40% 0 0;
+  transform: translateX(-12%) rotate(-8deg);
+  opacity: 0.84;
+}
+
+.today-special-photo {
+  position: absolute;
+  inset: 76px 30px 34px;
+  z-index: 2;
+  overflow: hidden;
+  border: 1px solid rgba(55, 25, 24, 0.12);
+  border-radius: 24px;
+  background: var(--color-paper-deep);
+  box-shadow: inset 0 0 0 8px rgba(255, 250, 240, 0.44);
+}
+
+.today-special-photo img {
+  object-position: 52% 38%;
+}
+
+.today-special-tape {
+  position: absolute;
+  right: 24px;
+  bottom: 28px;
+  z-index: 4;
+  width: 84px;
+  height: 28px;
+  border-radius: 3px;
+  background: rgba(47, 111, 159, 0.74);
+  box-shadow: 0 4px 8px rgba(55, 25, 24, 0.12);
+  transform: rotate(-8deg);
+  mix-blend-mode: multiply;
 }
 
 .today-special-stamp {
@@ -377,6 +452,337 @@ body {
   line-height: 1.1;
   text-transform: uppercase;
   transform: rotate(-9deg);
+}
+
+.primary-jobs {
+  position: relative;
+  overflow: visible;
+}
+
+.primary-jobs::before {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  content: "";
+  background:
+    radial-gradient(circle at 12% 22%, rgba(47, 111, 159, 0.12), transparent 28%),
+    linear-gradient(90deg, rgba(255, 250, 240, 0.72), transparent 58%),
+    url("/images/generated/paper-stamp-texture.png");
+  background-size: 900px 900px, cover, cover;
+  opacity: 0.42;
+}
+
+.primary-jobs > * {
+  position: relative;
+}
+
+.primary-job-card {
+  position: relative;
+  min-height: 240px;
+  overflow: hidden;
+  color: var(--job-ink);
+  background:
+    linear-gradient(180deg, color-mix(in srgb, var(--job-bg) 88%, white), var(--job-bg)),
+    url("/images/generated/paper-stamp-texture.png");
+  background-size: cover;
+  border: 1px solid color-mix(in srgb, var(--job-ink) 16%, transparent);
+  border-radius: 26px;
+  box-shadow: var(--shadow-paper);
+  isolation: isolate;
+}
+
+.primary-job-card::after {
+  position: absolute;
+  right: 18px;
+  bottom: 18px;
+  z-index: 2;
+  width: 48px;
+  height: 48px;
+  pointer-events: none;
+  content: "";
+  border: 1px dashed color-mix(in srgb, var(--job-accent) 52%, transparent);
+  border-radius: 999px;
+  opacity: 0.72;
+  transform: rotate(10deg);
+}
+
+.primary-job-card[data-active="true"] {
+  border-color: color-mix(in srgb, var(--job-accent) 58%, white);
+  box-shadow:
+    0 20px 50px rgba(55, 25, 24, 0.16),
+    inset 0 0 0 2px color-mix(in srgb, var(--job-accent) 38%, transparent);
+}
+
+.primary-job-card[data-active="true"]::after {
+  background: color-mix(in srgb, var(--job-accent) 9%, transparent);
+}
+
+.primary-job-visual {
+  position: relative;
+  display: block;
+  aspect-ratio: 2.2;
+  overflow: hidden;
+  border-bottom: 1px solid rgba(55, 25, 24, 0.1);
+}
+
+.primary-job-visual::after {
+  position: absolute;
+  inset: 0;
+  content: "";
+  background: linear-gradient(180deg, rgba(255, 250, 240, 0.05), rgba(255, 250, 240, 0.62));
+}
+
+.primary-job-logo {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  z-index: 2;
+  width: min(68%, 180px);
+  height: 58px;
+  padding: 10px 14px;
+  border: 1px solid rgba(55, 25, 24, 0.1);
+  border-radius: 18px;
+  background: rgba(255, 250, 240, 0.82);
+  box-shadow: 0 14px 34px rgba(55, 25, 24, 0.13);
+  transform: translate(-50%, -48%) rotate(-1deg);
+  backdrop-filter: blur(5px);
+}
+
+.primary-job-card[data-job-id="fortune"] .primary-job-logo,
+.primary-job-card[data-job-id="zalo"] .primary-job-logo {
+  background: rgba(255, 250, 240, 0.9);
+  box-shadow:
+    inset 0 0 0 1px rgba(55, 25, 24, 0.04),
+    0 14px 34px rgba(55, 25, 24, 0.12);
+}
+
+.primary-job-card[data-job-id="fortune"] .primary-job-logo {
+  width: 108px;
+  height: 108px;
+  padding: 0;
+  overflow: hidden;
+  border-color: rgba(205, 118, 84, 0.24);
+  border-radius: 20px;
+  background:
+    linear-gradient(145deg, rgba(255, 250, 240, 0.96), rgba(248, 235, 210, 0.92)),
+    url("/images/generated/paper-stamp-texture.png");
+  background-size: cover;
+  box-shadow:
+    inset 0 0 0 1px rgba(255, 255, 255, 0.72),
+    0 16px 34px rgba(55, 25, 24, 0.13);
+  transform: translate(-50%, -48%) rotate(-2deg);
+}
+
+.primary-job-card[data-job-id="fortune"] .primary-job-logo::before {
+  position: absolute;
+  inset: 8px;
+  z-index: 1;
+  pointer-events: none;
+  content: "";
+  border: 1px dashed rgba(205, 118, 84, 0.34);
+  border-radius: 15px;
+}
+
+.primary-job-card[data-job-id="zalo"] .primary-job-logo {
+  width: min(74%, 226px);
+  height: 76px;
+}
+
+.primary-job-card[data-job-id="fortune"] .primary-job-logo img {
+  inset: 12px !important;
+  z-index: 2;
+  width: calc(100% - 24px) !important;
+  height: calc(100% - 24px) !important;
+  object-fit: contain;
+  object-position: center;
+}
+
+.primary-job-card[data-job-id="zalo"] .primary-job-logo img {
+  inset: 14px 30px !important;
+  width: calc(100% - 60px) !important;
+  height: calc(100% - 28px) !important;
+  object-fit: contain;
+  object-position: center;
+}
+
+.primary-job-detail {
+  position: relative;
+  overflow: hidden;
+  padding: clamp(1.25rem, 3vw, 2.25rem);
+  background:
+    linear-gradient(145deg, rgba(255, 250, 240, 0.88), color-mix(in srgb, var(--job-bg) 54%, white)),
+    url("/images/generated/paper-stamp-texture.png");
+  background-size: cover;
+  border: 1px solid color-mix(in srgb, var(--job-accent) 16%, transparent);
+  border-radius: 30px;
+  box-shadow: 0 24px 70px rgba(55, 25, 24, 0.12);
+}
+
+.primary-job-detail::before {
+  position: absolute;
+  right: -60px;
+  top: -60px;
+  width: 180px;
+  height: 180px;
+  pointer-events: none;
+  content: "";
+  border: 2px dashed color-mix(in srgb, var(--job-accent) 22%, transparent);
+  border-radius: 999px;
+}
+
+.primary-job-detail > * {
+  position: relative;
+}
+
+.primary-job-feature-logo {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: min(60%, 240px);
+  height: 88px;
+  padding: 14px 18px;
+  border: 1px solid rgba(55, 25, 24, 0.1);
+  border-radius: 22px;
+  background: rgba(255, 250, 240, 0.86);
+  box-shadow: 0 16px 38px rgba(55, 25, 24, 0.14);
+  transform: translate(-50%, -50%) rotate(-1deg);
+  backdrop-filter: blur(5px);
+}
+
+.primary-job-detail[data-job-id="fortune"] .primary-job-feature-logo,
+.primary-job-detail[data-job-id="zalo"] .primary-job-feature-logo {
+  background: rgba(255, 250, 240, 0.9);
+}
+
+.primary-job-detail[data-job-id="fortune"] .primary-job-feature-logo img {
+  inset: 14px 62px !important;
+  width: calc(100% - 124px) !important;
+  height: calc(100% - 28px) !important;
+  object-fit: contain;
+  object-position: center;
+}
+
+.primary-job-detail[data-job-id="zalo"] .primary-job-feature-logo {
+  width: min(64%, 280px);
+}
+
+.primary-job-detail[data-job-id="zalo"] .primary-job-feature-logo img {
+  inset: 20px 40px !important;
+  width: calc(100% - 80px) !important;
+  height: calc(100% - 40px) !important;
+  object-fit: contain;
+  object-position: center;
+}
+
+.primary-job-metrics {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+  margin-top: 1.75rem;
+}
+
+.primary-job-metric {
+  position: relative;
+  min-height: 176px;
+  overflow: hidden;
+  padding: 1.1rem;
+  border: 1px solid color-mix(in srgb, var(--job-accent) 24%, transparent);
+  border-radius: 22px;
+  background:
+    linear-gradient(145deg, rgba(255, 250, 240, 0.86), color-mix(in srgb, var(--job-bg) 42%, white)),
+    url("/images/generated/paper-stamp-texture.png");
+  background-size: cover;
+  color: var(--job-ink);
+  box-shadow: 0 16px 36px rgba(55, 25, 24, 0.1);
+  isolation: isolate;
+}
+
+.primary-job-metric::before {
+  position: absolute;
+  right: 1rem;
+  top: 1rem;
+  width: 54px;
+  height: 54px;
+  pointer-events: none;
+  content: "";
+  border: 1px dashed color-mix(in srgb, var(--job-accent) 44%, transparent);
+  border-radius: 999px;
+  opacity: 0.64;
+  transform: rotate(10deg);
+}
+
+.primary-job-metric::after {
+  position: absolute;
+  inset: auto -26px -42px auto;
+  width: 110px;
+  height: 110px;
+  pointer-events: none;
+  content: "";
+  background: color-mix(in srgb, var(--job-accent) 11%, transparent);
+  border-radius: 999px;
+  filter: blur(1px);
+  opacity: 0.7;
+  z-index: -1;
+}
+
+.primary-job-metric-kicker {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  color: color-mix(in srgb, var(--job-ink) 62%, transparent);
+  font-size: 0.68rem;
+  font-weight: 950;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.primary-job-metric-kicker span:first-child {
+  display: grid;
+  width: 30px;
+  height: 30px;
+  place-items: center;
+  border: 1px solid color-mix(in srgb, var(--job-accent) 34%, transparent);
+  border-radius: 999px;
+  background: rgba(255, 250, 240, 0.58);
+  color: var(--job-accent);
+}
+
+.primary-job-metric-value {
+  margin-top: 1.2rem;
+  color: var(--job-ink);
+  font-family: var(--font-display);
+  font-size: 4.35rem;
+  font-weight: 900;
+  line-height: 0.9;
+  text-transform: uppercase;
+}
+
+.primary-job-metric-rule {
+  width: min(74%, 160px);
+  height: 7px;
+  margin-top: 1rem;
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--job-accent) 84%, white);
+  box-shadow: inset 0 -2px 0 rgba(55, 25, 24, 0.1);
+}
+
+.primary-job-metric-label {
+  margin-top: 0.85rem;
+  color: color-mix(in srgb, var(--job-ink) 86%, black);
+  font-size: 0.86rem;
+  font-weight: 950;
+  line-height: 1.2;
+  text-transform: uppercase;
+}
+
+.primary-job-metric-note {
+  margin-top: 0.55rem;
+  max-width: 24rem;
+  color: color-mix(in srgb, var(--job-ink) 66%, transparent);
+  font-size: 0.78rem;
+  font-weight: 750;
+  line-height: 1.5;
 }
 
 .signature-recipes {
@@ -640,8 +1046,45 @@ body {
     display: none;
   }
 
+  .today-special-paper-tag {
+    width: min(80vw, 320px);
+  }
+
+  .today-special-photo {
+    inset: 62px 22px 26px;
+    border-radius: 20px;
+  }
+
+  .today-special-eyelet {
+    top: 24px;
+    width: 40px;
+    height: 40px;
+    border-width: 11px;
+  }
+
+  .today-special-string,
+  .today-special-tape {
+    display: none;
+  }
+
   .ingredient-shelf-image {
     opacity: 0.18;
+  }
+
+  .primary-job-metrics {
+    grid-template-columns: 1fr;
+  }
+
+  .primary-job-metric {
+    min-height: 154px;
+  }
+
+  .primary-job-metric-value {
+    font-size: 3.45rem;
+  }
+
+  .primary-job-metric-rule {
+    width: min(70%, 140px);
   }
 
   .about-highlight {

@@ -68,11 +68,11 @@ export function BehindBaker() {
         <Reveal className="relative mx-auto w-full max-w-[460px]" delay={0.12}>
           <div className="about-image-card relative aspect-[0.78] overflow-hidden rounded-[32px] border border-ink/10 bg-paper shadow-[0_24px_70px_rgba(55,25,24,0.16)]">
             <Image
-              alt=""
+              alt="Khanh Huyen portrait"
               className="object-cover"
               fill
               sizes="(min-width: 1024px) 38vw, 86vw"
-              src="/images/generated/portrait-tag-placeholder.png"
+              src="/images/khanh-huyen-about.jpg"
             />
             <span aria-hidden="true" className="about-image-stamp stamp-ring">
               Growth bar

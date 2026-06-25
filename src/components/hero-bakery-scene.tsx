@@ -67,14 +67,21 @@ export function HeroBakeryScene() {
           className="today-special-tag relative min-h-[340px] sm:min-h-[440px] lg:min-h-[540px]"
           transition={{ duration: 7, repeat: Infinity, ease: "easeInOut" }}
         >
-          <Image
-            alt=""
-            className="object-contain"
-            fill
-            priority
-            sizes="(min-width: 1024px) 40vw, 86vw"
-            src="/images/generated/portrait-tag-placeholder.png"
-          />
+          <div className="today-special-paper-tag">
+            <span aria-hidden="true" className="today-special-eyelet" />
+            <span aria-hidden="true" className="today-special-string" />
+            <div className="today-special-photo">
+              <Image
+                alt="Khanh Huyen portrait"
+                className="object-cover"
+                fill
+                priority
+                sizes="(min-width: 1024px) 30vw, 72vw"
+                src="/images/khanh-huyen-portrait.jpg"
+              />
+            </div>
+            <span aria-hidden="true" className="today-special-tape" />
+          </div>
           <span aria-hidden="true" className="today-special-stamp stamp-ring">
             Brewed fresh
           </span>
