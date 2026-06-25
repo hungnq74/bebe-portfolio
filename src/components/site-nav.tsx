@@ -1,9 +1,10 @@
 import { ArrowUpRight } from "lucide-react";
 
 const navItems = [
-  { label: "Work", href: "#work" },
+  { label: "Menu", href: "#menu" },
   { label: "About", href: "#about" },
-  { label: "Services", href: "#services" },
+  { label: "Recipes", href: "#recipes" },
+  { label: "Work", href: "#work" },
   { label: "Contact", href: "#contact" },
 ];
 

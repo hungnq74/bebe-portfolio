@@ -1,53 +1,82 @@
+import Image from "next/image";
 import { ArrowUpRight } from "lucide-react";
 import { Reveal } from "@/components/reveal";
 
+const highlights = [
+  "attention into action",
+  "in-store traffic",
+  "daily cravings",
+  "record-breaking revenue",
+];
+
 export function BehindBaker() {
   return (
-    <section className="bg-cream py-14 sm:py-16" id="about">
-      <div className="section-shell grid gap-8 lg:grid-cols-[0.72fr_1fr_0.82fr] lg:items-center">
-        <Reveal className="relative mx-auto grid aspect-square w-full max-w-[230px] place-items-center rounded-[36%] border border-blue/35 bg-paper shadow-[0_16px_36px_rgba(55,25,24,0.12)]">
-          <span className="absolute -left-4 top-3 font-hand text-4xl text-blue">
-            hi
-          </span>
-          <div className="grid h-[78%] w-[78%] place-items-center rounded-[34%] border border-dashed border-blue/55 bg-cream text-center">
-            <span className="font-serif text-5xl font-black text-berry">B</span>
-            <span className="mt-1 block text-[10px] font-black uppercase text-ink/58">
-              Creative lead
-            </span>
-          </div>
-        </Reveal>
-
-        <Reveal delay={0.08}>
-          <p className="font-hand text-2xl text-stamp">behind the baker</p>
-          <h2 className="font-display mt-1 text-5xl leading-none text-ink sm:text-6xl">
-            Equal parts strategist and storyteller.
+    <section className="about-feature bg-cream py-14 sm:py-20" id="about">
+      <div className="section-shell grid gap-8 lg:grid-cols-[1fr_0.78fr] lg:items-center">
+        <Reveal>
+          <p className="font-hand text-2xl text-stamp">about me</p>
+          <h2 className="font-display mt-1 text-5xl leading-none text-ink sm:text-7xl">
+            Pull up a seat.
           </h2>
-          <p className="mt-5 max-w-2xl text-base font-semibold leading-7 text-ink/72">
-            Bebe turns fuzzy brand ideas into usable systems: positioning,
-            content recipes, launch moments, and creative tests that a team can
-            actually run.
-          </p>
-          <p className="font-hand mt-5 text-2xl text-blue">
-            Let&apos;s create something delicious.
-          </p>
+          <div className="mt-6 space-y-5 text-base font-semibold leading-8 text-ink/74">
+            <p>
+              I&apos;m a creative-oriented growth marketer who turns{" "}
+              <span className="about-highlight">attention into action</span> -
+              impressions into{" "}
+              <span className="about-highlight">in-store traffic</span>,
+              first-time visitors into regulars, and brands into{" "}
+              <span className="about-highlight">daily cravings</span>, with
+              work tied to{" "}
+              <span className="about-highlight">
+                record-breaking revenue
+              </span>{" "}
+              and recognizable brands.
+            </p>
+            <p>
+              My background blends product, creative, and growth: creative UA,
+              campaign testing, fast experimentation, and product-led growth
+              across startup environments. Beyond work, I&apos;ve always loved
+              F&amp;B for the feeling behind a place - the ritual, the mood, and
+              the reason people return and recommend.
+            </p>
+            <p>
+              So pull up a seat and explore my secret recipe from the Growth
+              Bar menu: ideas, insights, experiments, and proof of work.
+            </p>
+          </div>
+
+          <div className="mt-7 flex flex-wrap gap-2">
+            {highlights.map((highlight) => (
+              <span
+                className="rounded-full border border-blue/20 bg-blue/10 px-3 py-2 text-[11px] font-black uppercase text-blue"
+                key={highlight}
+              >
+                {highlight}
+              </span>
+            ))}
+          </div>
+
+          <a
+            className="mt-8 inline-flex h-12 items-center gap-3 rounded-full bg-ink px-6 text-xs font-black uppercase text-cream transition hover:-translate-y-0.5 hover:bg-berry focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-blue"
+            href="#recipes"
+          >
+            Secret recipe
+            <ArrowUpRight aria-hidden="true" size={16} strokeWidth={2.5} />
+          </a>
         </Reveal>
 
-        <Reveal delay={0.16}>
-          <div className="border-l border-ink/10 pl-0 lg:pl-8">
-            <h3 className="font-display text-4xl leading-none text-berry">
-              Good ideas start with a useful brief.
-            </h3>
-            <p className="mt-4 text-sm font-semibold leading-6 text-ink/68">
-              Strategy, creative direction, copy, and launch planning for brands
-              that want more than pretty posts.
-            </p>
-            <a
-              className="mt-6 inline-flex h-12 items-center gap-3 rounded-full bg-ink px-6 text-xs font-black uppercase text-cream transition hover:-translate-y-0.5 hover:bg-berry focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-blue"
-              href="#contact"
-            >
-              Get in touch
-              <ArrowUpRight aria-hidden="true" size={16} strokeWidth={2.5} />
-            </a>
+        <Reveal className="relative mx-auto w-full max-w-[460px]" delay={0.12}>
+          <div className="about-image-card relative aspect-[0.78] overflow-hidden rounded-[32px] border border-ink/10 bg-paper shadow-[0_24px_70px_rgba(55,25,24,0.16)]">
+            <Image
+              alt=""
+              className="object-cover"
+              fill
+              sizes="(min-width: 1024px) 38vw, 86vw"
+              src="/images/generated/portrait-tag-placeholder.png"
+            />
+            <span aria-hidden="true" className="about-image-stamp stamp-ring">
+              Growth bar
+            </span>
           </div>
         </Reveal>
       </div>

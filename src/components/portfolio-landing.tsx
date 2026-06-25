@@ -6,9 +6,10 @@ import { BehindBaker } from "@/components/behind-baker";
 import { CaseStudyDrawer } from "@/components/case-study-drawer";
 import { ContactPanel } from "@/components/contact-panel";
 import { Footer } from "@/components/footer";
+import { GrowthIngredients } from "@/components/growth-ingredients";
 import { HeroBakeryScene } from "@/components/hero-bakery-scene";
-import { IngredientMarquee } from "@/components/ingredient-marquee";
 import { PortfolioTagMenu } from "@/components/portfolio-tag-menu";
+import { SignatureRecipesIntro } from "@/components/signature-recipes-intro";
 import { SiteNav } from "@/components/site-nav";
 
 export function PortfolioLanding() {
@@ -17,14 +18,15 @@ export function PortfolioLanding() {
   return (
     <main className="min-h-screen overflow-hidden">
       <SiteNav />
-      <HeroBakeryScene onOpenCase={() => setSelectedCase(caseStudies[0])} />
+      <HeroBakeryScene />
+      <GrowthIngredients />
+      <BehindBaker />
+      <SignatureRecipesIntro />
       <PortfolioTagMenu
         cases={caseStudies}
         onSelect={setSelectedCase}
         selectedId={selectedCase?.id}
       />
-      <IngredientMarquee />
-      <BehindBaker />
       <ContactPanel />
       <Footer />
       <CaseStudyDrawer

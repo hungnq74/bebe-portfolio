@@ -25,19 +25,19 @@ export function PortfolioTagMenu({
           <div>
             <p className="font-hand text-2xl text-stamp">freshly baked</p>
             <h2 className="font-display text-5xl leading-none text-ink sm:text-7xl">
-              Portfolio menu
+              Growth Bar Menu
             </h2>
             <p className="mt-3 max-w-xl text-sm font-semibold leading-6 text-ink/68 sm:text-base">
-              A collection of brand and growth work served with strategy,
-              creative systems, and launch thinking.
+              Six F&amp;B recipes served with strategy, experiments, and proof
+              of work.
             </p>
           </div>
           <div className="stamp-ring inline-flex w-fit px-5 py-3 text-xs font-black uppercase">
-            Case studies
+            Click a recipe
           </div>
         </Reveal>
 
-        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {cases.map((caseStudy, index) => (
             <CaseTagCard
               caseStudy={caseStudy}

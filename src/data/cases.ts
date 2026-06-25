@@ -15,154 +15,136 @@ export type CaseStudy = {
   results: string[];
 };
 
-const thumbnailSheet = "/images/generated/case-thumbnail-sheet.png";
+const recipeSheet = "/images/generated/signature-recipe-card-sheet.png";
 
 export const caseStudies: CaseStudy[] = [
   {
-    id: "oaten",
-    title: "Oaten",
-    tagline: "Breakfast brand campaign for a pantry staple with personality.",
-    services: ["Brand campaign", "Content strategy", "Launch copy"],
+    id: "dumpling-bar",
+    title: "Dumpling Bar",
+    tagline: "break-record revenue in 3rd month since signing contract",
+    services: ["Growth MKT", "F&B campaign", "Revenue"],
     summary:
-      "A cozy launch system that turned plain oats into a morning ritual with modular recipe stories, social hooks, and packaging language.",
-    image: thumbnailSheet,
+      "A growth recipe for turning early campaign momentum into measurable restaurant revenue.",
+    image: recipeSheet,
     imagePosition: "0% 0%",
     palette: {
-      background: "#f8ead4",
-      ink: "#5b2524",
-      accent: "#d76499",
+      background: "#fff3dd",
+      ink: "#55201f",
+      accent: "#b86b51",
     },
     shape: "scallop",
     results: [
-      "Built a 4-week content menu",
-      "Defined the warm pantry voice",
-      "Mapped creator-friendly recipe prompts",
+      "Focused campaign timing around demand moments",
+      "Connected creative testing to revenue signals",
+      "Built a repeatable F&B growth rhythm",
     ],
   },
   {
-    id: "han-bakery",
-    title: "Han Bakery",
-    tagline: "A lunch campaign with hand-held charm and clean conversion paths.",
-    services: ["Branding", "Packaging", "Social launch"],
+    id: "urban-matcha-san-francisco",
+    title: "Urban Matcha San Francisco",
+    tagline: "constantly lines queuing up everyday in 2 weeks of Soft Opening",
+    services: ["Launch", "Social proof", "Foot traffic"],
     summary:
-      "A tactile identity refresh for a small bakery line, pairing ingredient-led visuals with practical launch posts and menu-card offers.",
-    image: thumbnailSheet,
+      "A soft-opening launch story designed to create visible demand and keep the line moving.",
+    image: recipeSheet,
     imagePosition: "50% 0%",
     palette: {
-      background: "#55663d",
+      background: "#dfe7d1",
+      ink: "#30401f",
+      accent: "#7d9556",
+    },
+    shape: "ticket",
+    results: [
+      "Positioned the opening around visible demand",
+      "Translated queue energy into social proof",
+      "Supported launch-period foot traffic",
+    ],
+  },
+  {
+    id: "tram-cream-coffee",
+    title: "Tram Cream Coffee",
+    tagline:
+      "successfully communicated for 2 grand opening for new locations that bring instore traffic",
+    services: ["Grand opening", "Messaging", "Local reach"],
+    summary:
+      "A grand-opening communication system for helping new locations become places people notice and visit.",
+    image: recipeSheet,
+    imagePosition: "100% 0%",
+    palette: {
+      background: "#d8e3ea",
+      ink: "#1f3d54",
+      accent: "#2f6f9f",
+    },
+    shape: "arch",
+    results: [
+      "Clarified opening messages for new locations",
+      "Built local traffic hooks around launch timing",
+      "Turned campaign updates into visit intent",
+    ],
+  },
+  {
+    id: "bobapop-san-diego",
+    title: "BoBaPop San Diego",
+    tagline:
+      "Rebranding campaign successfully bringing a clearer and unique brand identities",
+    services: ["Rebranding", "Brand identity", "Campaign"],
+    summary:
+      "A rebrand campaign that sharpened the brand's personality and made its identity easier to recognize.",
+    image: recipeSheet,
+    imagePosition: "0% 100%",
+    palette: {
+      background: "#f2dfd8",
+      ink: "#572421",
+      accent: "#c67b9a",
+    },
+    shape: "notched",
+    results: [
+      "Defined clearer brand signals",
+      "Built a more ownable campaign look",
+      "Created a distinct identity system for recall",
+    ],
+  },
+  {
+    id: "otay-sushi-and-crab",
+    title: "Otay Sushi and Crab",
+    tagline: "grow from 0 - 12k followers organically in 8 months",
+    services: ["Organic social", "Content growth", "Community"],
+    summary:
+      "An organic social growth recipe for building audience, recognition, and repeatable content momentum.",
+    image: recipeSheet,
+    imagePosition: "50% 100%",
+    palette: {
+      background: "#fff6dd",
+      ink: "#3b3422",
+      accent: "#d49b45",
+    },
+    shape: "scallop",
+    results: [
+      "Built a consistent organic content cadence",
+      "Grew the account from zero to 12k followers",
+      "Turned visual food appeal into audience momentum",
+    ],
+  },
+  {
+    id: "manna-heaven-bbq",
+    title: "Manna Heaven BBQ",
+    tagline:
+      "managing the marketing strategy and campaign of the biggest KBBQ chain in San Diego",
+    services: ["Strategy", "Campaign management", "KBBQ chain"],
+    summary:
+      "A multi-location marketing strategy and campaign-management system for a major KBBQ brand.",
+    image: recipeSheet,
+    imagePosition: "100% 100%",
+    palette: {
+      background: "#3a231f",
       ink: "#fff8e9",
       accent: "#e3bc62",
     },
     shape: "ticket",
     results: [
-      "Created a launchable content rhythm",
-      "Designed offer-led menu cards",
-      "Clarified product naming",
-    ],
-  },
-  {
-    id: "almond-hour",
-    title: "Almond Hour",
-    tagline: "A boutique pastry concept built for search, saves, and repeat visits.",
-    services: ["Branding", "SEO content", "Email flow"],
-    summary:
-      "A refined pastry story system with searchable product pages, evergreen email moments, and illustrated marks for seasonal drops.",
-    image: thumbnailSheet,
-    imagePosition: "100% 0%",
-    palette: {
-      background: "#fff8ee",
-      ink: "#321716",
-      accent: "#2f6f9f",
-    },
-    shape: "arch",
-    results: [
-      "Outlined SEO-friendly product stories",
-      "Built a welcome email flow",
-      "Created seasonal drop messaging",
-    ],
-  },
-  {
-    id: "avgi-pilates",
-    title: "Avgi Pilates",
-    tagline: "A wellness brand system that feels balanced, precise, and human.",
-    services: ["Wellness brand", "Paid social", "Landing page"],
-    summary:
-      "A calm visual and messaging direction that translated studio benefits into simple proof points, offers, and retention touchpoints.",
-    image: thumbnailSheet,
-    imagePosition: "0% 100%",
-    palette: {
-      background: "#c6d6df",
-      ink: "#1d3947",
-      accent: "#7d96aa",
-    },
-    shape: "arch",
-    results: [
-      "Clarified the new-member journey",
-      "Created offer testing angles",
-      "Built retention content pillars",
-    ],
-  },
-  {
-    id: "zest-fizz",
-    title: "Zest & Fizz",
-    tagline: "A sparkling drink launch with botanical bite and shelf energy.",
-    services: ["Brand identity", "Product launch", "Retail copy"],
-    summary:
-      "A bright launch kit for a citrus drink line, blending ingredient education, retail language, and scroll-stopping social assets.",
-    image: thumbnailSheet,
-    imagePosition: "50% 100%",
-    palette: {
-      background: "#fff2c7",
-      ink: "#3f4d30",
-      accent: "#caa13c",
-    },
-    shape: "scallop",
-    results: [
-      "Named the launch content lanes",
-      "Wrote retail shelf claims",
-      "Designed sampling prompts",
-    ],
-  },
-  {
-    id: "denim-district",
-    title: "Denim District",
-    tagline: "A style test bed for performance creative that still has taste.",
-    services: ["Performance media", "Creative testing", "Offer strategy"],
-    summary:
-      "A testable campaign library for a denim label, connecting product fit stories with creative variants and clear learning goals.",
-    image: thumbnailSheet,
-    imagePosition: "100% 100%",
-    palette: {
-      background: "#d7e0e6",
-      ink: "#123052",
-      accent: "#9b6a32",
-    },
-    shape: "notched",
-    results: [
-      "Built a 12-angle creative matrix",
-      "Paired offers with fit concerns",
-      "Set weekly learning questions",
-    ],
-  },
-  {
-    id: "quest-installs",
-    title: "Quest Installs",
-    tagline: "A playful growth loop for a game launch with better onboarding.",
-    services: ["UA strategy", "Creative analytics", "LTV optimization"],
-    summary:
-      "A game-growth concept that turns player motivation into creative themes, onboarding beats, and a clearer performance dashboard.",
-    image: "/images/generated/paper-stamp-texture.png",
-    imagePosition: "50% 50%",
-    palette: {
-      background: "#241832",
-      ink: "#f8efe1",
-      accent: "#8c65d8",
-    },
-    shape: "ticket",
-    results: [
-      "Mapped player motivation hooks",
-      "Defined creative naming rules",
-      "Outlined metric review rituals",
+      "Managed campaign strategy across a large local chain",
+      "Organized marketing priorities around brand scale",
+      "Kept F&B creative tied to business outcomes",
     ],
   },
 ];

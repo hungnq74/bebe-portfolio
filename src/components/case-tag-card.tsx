@@ -42,7 +42,7 @@ export function CaseTagCard({
       className={cn(
         "case-tag group flex w-full flex-col justify-between p-5 text-left transition focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-blue",
         `case-tag-${caseStudy.shape}`,
-        caseStudy.palette.background === "#241832" && "case-tag-dark",
+        caseStudy.palette.ink === "#fff8e9" && "case-tag-dark",
       )}
       initial={
         reduceMotion
@@ -68,9 +68,9 @@ export function CaseTagCard({
     >
       <span className="pointer-events-none relative z-10 mt-8 block">
         <span className="block text-[10px] font-black uppercase opacity-[0.62]">
-          Brand recipe
+          Signature recipe
         </span>
-        <span className="font-serif mt-1 block text-[clamp(2rem,6vw,3rem)] font-black leading-[0.9]">
+        <span className="font-serif mt-1 block text-[clamp(1.7rem,4.6vw,2.8rem)] font-black leading-[0.92]">
           {caseStudy.title}
         </span>
       </span>
@@ -93,7 +93,7 @@ export function CaseTagCard({
             </span>
           ))}
         </span>
-        <span className="flex items-end justify-between gap-4 text-[11px] font-black uppercase">
+        <span className="flex items-end justify-between gap-4 text-[10px] font-black uppercase leading-4">
           <span>{caseStudy.tagline}</span>
           <ArrowUpRight
             aria-hidden="true"

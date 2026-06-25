@@ -1,79 +1,60 @@
 "use client";
 
 import Image from "next/image";
-import { ArrowDown, ArrowUpRight, Download } from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
 import { motion, useReducedMotion } from "motion/react";
 import { Reveal } from "@/components/reveal";
 
-type HeroBakerySceneProps = {
-  onOpenCase: () => void;
-};
-
-export function HeroBakeryScene({ onOpenCase }: HeroBakerySceneProps) {
+export function HeroBakeryScene() {
   const reduceMotion = useReducedMotion();
 
   return (
-    <section className="hero-scene flex items-end pt-28" id="top">
-      <div className="hero-image">
-        <Image
-          alt=""
-          fill
-          priority
-          sizes="100vw"
-          src="/images/generated/hero-pastry-still-life.png"
-        />
-      </div>
+    <section className="menu-cover-hero flex items-end pt-28" id="top">
+      <div aria-hidden="true" className="awning" />
 
-      <div className="section-shell relative z-10 grid min-h-[calc(78svh-7rem)] items-center gap-10 py-8 lg:grid-cols-[0.95fr_0.82fr] lg:py-10">
-        <div className="max-w-[650px]">
+      <div className="menu-cover-card section-shell relative z-10 grid min-h-[calc(82svh-7rem)] items-center gap-8 px-5 py-8 sm:px-8 lg:grid-cols-[0.9fr_0.8fr] lg:px-10 lg:py-10">
+        <div className="relative z-10 max-w-[680px]">
           <Reveal>
             <div className="mb-5 flex flex-wrap items-center gap-3">
               <span className="rounded-full border border-ink/25 bg-cream/70 px-3 py-1.5 text-[11px] font-black uppercase text-ink/78">
-                Creative marketer
+                Today&apos;s special
               </span>
-              <span className="font-hand text-2xl text-blue">
-                for brands people crave
+              <span className="font-serif text-xl italic text-blue sm:text-2xl">
+                photography
               </span>
             </div>
           </Reveal>
 
           <Reveal delay={0.08}>
-            <h1 className="font-display max-w-[620px] text-[clamp(3.4rem,7.6vw,6.4rem)] leading-[0.9] text-berry">
-              I turn brands into daily cravings.
+            <h1 className="font-serif max-w-[720px] text-[clamp(3.8rem,8.4vw,8rem)] font-black leading-[0.86] text-berry">
+              <span className="block">Today&apos;s</span>
+              <span className="block">Special</span>
             </h1>
           </Reveal>
 
           <Reveal delay={0.16}>
-            <p className="mt-5 max-w-xl text-base font-semibold leading-7 text-ink/78 sm:text-lg">
-              Bebe blends strategy, storytelling, and scroll-stopping creative
-              into portfolio work that feels handmade, useful, and ready to
-              launch.
+            <div className="mt-4 h-2 w-48 rounded-full bg-blue/80" />
+            <p className="mt-5 max-w-[520px] text-base font-semibold leading-7 text-ink/78 sm:text-lg">
+              A creative growth marketer brewed from product thinking, UA
+              experiments, and a love for F&amp;B.
             </p>
           </Reveal>
 
           <Reveal delay={0.24}>
             <div className="mt-6 flex flex-wrap items-center gap-3">
-              <button
-                className="inline-flex h-12 items-center gap-3 rounded-full bg-berry px-6 text-xs font-black uppercase text-cream shadow-[0_14px_30px_rgba(85,32,31,0.28)] transition hover:-translate-y-0.5 hover:bg-ink focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-blue"
-                onClick={onOpenCase}
-                type="button"
-              >
-                View my work
-                <ArrowUpRight aria-hidden="true" size={16} strokeWidth={2.5} />
-              </button>
               <a
-                className="inline-flex h-12 items-center gap-2 rounded-full border border-ink/15 bg-cream/68 px-5 text-xs font-black uppercase text-ink/76 transition hover:-translate-y-0.5 hover:bg-cream focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-blue"
-                href="#work"
+                className="inline-flex h-12 items-center gap-3 rounded-full bg-berry px-6 text-xs font-black uppercase text-cream shadow-[0_14px_30px_rgba(85,32,31,0.28)] transition hover:-translate-y-0.5 hover:bg-ink focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-blue"
+                href="#about"
               >
-                Browse menu
-                <ArrowDown aria-hidden="true" size={15} strokeWidth={2.4} />
+                About me
+                <ArrowUpRight aria-hidden="true" size={16} strokeWidth={2.5} />
               </a>
               <a
-                className="inline-flex h-12 items-center gap-2 px-2 text-xs font-black uppercase text-ink/68 transition hover:text-blue focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-blue"
-                href="#contact"
+                className="inline-flex h-12 items-center gap-2 rounded-full border border-ink/15 bg-cream/68 px-5 text-xs font-black uppercase text-ink/76 transition hover:-translate-y-0.5 hover:bg-cream focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-blue"
+                href="#menu"
               >
-                Download CV
-                <Download aria-hidden="true" size={14} strokeWidth={2.4} />
+                Explore menu
+                <ArrowUpRight aria-hidden="true" size={15} strokeWidth={2.4} />
               </a>
             </div>
           </Reveal>
@@ -81,24 +62,21 @@ export function HeroBakeryScene({ onOpenCase }: HeroBakerySceneProps) {
 
         <motion.div
           animate={
-            reduceMotion ? undefined : { y: [0, -10, 0], rotate: [-2, 1, -2] }
+            reduceMotion ? undefined : { y: [0, -8, 0], rotate: [1.5, -0.5, 1.5] }
           }
-          className="paper-tag mx-auto hidden w-full max-w-[330px] px-7 pb-8 pt-16 text-center sm:block lg:max-w-[360px]"
-          transition={{ duration: 6.5, repeat: Infinity, ease: "easeInOut" }}
+          className="today-special-tag relative min-h-[340px] sm:min-h-[440px] lg:min-h-[540px]"
+          transition={{ duration: 7, repeat: Infinity, ease: "easeInOut" }}
         >
-          <p className="text-[11px] font-black uppercase text-stamp">Hello</p>
-          <p className="font-hand mt-2 text-3xl text-blue">I&apos;m</p>
-          <p className="font-serif mt-1 text-[clamp(2.7rem,4.1vw,4.2rem)] font-black leading-[0.88] text-ink">
-            Your Creative Marketer
-          </p>
-          <div className="mx-auto mt-6 grid h-20 w-20 place-items-center rounded-full border-2 border-dashed border-blue/55 text-blue">
-            <span className="font-hand text-3xl">b</span>
-          </div>
-          <p className="mt-6 text-[11px] font-black uppercase text-ink/66">
-            Strategy - Creative - Growth
-          </p>
-          <span className="stamp-ring mx-auto mt-4 inline-flex px-4 py-2 text-[11px] font-black uppercase">
-            Made to crave
+          <Image
+            alt=""
+            className="object-contain"
+            fill
+            priority
+            sizes="(min-width: 1024px) 40vw, 86vw"
+            src="/images/generated/portrait-tag-placeholder.png"
+          />
+          <span aria-hidden="true" className="today-special-stamp stamp-ring">
+            Brewed fresh
           </span>
         </motion.div>
       </div>
