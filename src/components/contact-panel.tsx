@@ -1,37 +1,112 @@
-import { ArrowUpRight, Mail } from "lucide-react";
+"use client";
+
+import { useEffect, useRef, useState } from "react";
+import { ArrowUpRight, Check, Copy, Mail, Phone } from "lucide-react";
 import { Reveal } from "@/components/reveal";
 
+const emailAddress = "huyenlk.forwork@gmail.com";
+const linkedInUrl = "https://www.linkedin.com/in/huyenlk0612/";
+const phoneNumber = "0946754166";
+
 export function ContactPanel() {
+  const [copied, setCopied] = useState(false);
+  const timeoutRef = useRef<number | null>(null);
+
+  useEffect(() => {
+    return () => {
+      if (timeoutRef.current !== null) {
+        window.clearTimeout(timeoutRef.current);
+      }
+    };
+  }, []);
+
+  const copyPhoneNumber = async () => {
+    try {
+      await navigator.clipboard.writeText(phoneNumber);
+    } catch {
+      const textArea = document.createElement("textarea");
+      textArea.value = phoneNumber;
+      textArea.style.position = "fixed";
+      textArea.style.opacity = "0";
+      document.body.appendChild(textArea);
+      textArea.select();
+      document.execCommand("copy");
+      document.body.removeChild(textArea);
+    }
+
+    setCopied(true);
+
+    if (timeoutRef.current !== null) {
+      window.clearTimeout(timeoutRef.current);
+    }
+
+    timeoutRef.current = window.setTimeout(() => {
+      setCopied(false);
+    }, 1600);
+  };
+
   return (
     <section className="bg-paper py-14 sm:py-20" id="contact">
       <div className="section-shell grid gap-7 border-y border-ink/10 py-8 lg:grid-cols-[1fr_0.72fr] lg:items-center">
         <Reveal>
           <p className="font-hand text-3xl text-blue">
-            let&apos;s bake something great
+            let&apos;s brew something useful
           </p>
-          <h2 className="font-display mt-2 max-w-2xl text-6xl leading-[0.88] text-berry sm:text-8xl">
-            Your next launch can feel crafted and clear.
+          <h2 className="font-display mt-2 max-w-3xl text-5xl leading-[0.92] text-berry sm:text-7xl">
+            Ready to brew the next growth experiment together?
           </h2>
           <p className="mt-5 max-w-xl text-base font-semibold leading-7 text-ink/72">
-            Have a project in mind? Share the brief, messy notes, or the half
-            idea that keeps coming back. Bebe can shape it into a clear brand
-            story, a launch plan, and the creative pieces that make people care.
+            Share the messy idea, launch question, or growth signal worth
+            testing. I&apos;ll bring the menu of creative, product thinking, and
+            experiments.
           </p>
-          <div className="mt-8 flex flex-wrap gap-3">
+          <div className="mt-8 grid max-w-2xl gap-3 sm:grid-cols-2">
             <a
-              className="inline-flex h-12 items-center gap-3 rounded-full bg-berry px-6 text-xs font-black uppercase text-cream shadow-[0_14px_30px_rgba(85,32,31,0.24)] transition hover:-translate-y-0.5 hover:bg-ink focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-blue"
-              href="mailto:hello@bebe.studio"
+              className="inline-flex min-h-14 items-center gap-3 rounded-[18px] border border-berry/15 bg-berry px-4 text-sm font-black text-cream shadow-[0_14px_30px_rgba(85,32,31,0.18)] transition hover:-translate-y-0.5 hover:bg-ink focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-blue"
+              href={`mailto:${emailAddress}`}
             >
               <Mail aria-hidden="true" size={16} strokeWidth={2.5} />
-              hello@bebe.studio
+              <span>{emailAddress}</span>
             </a>
             <a
-              className="inline-flex h-12 items-center gap-3 rounded-full border border-ink/12 bg-paper px-6 text-xs font-black uppercase text-ink/72 transition hover:-translate-y-0.5 hover:bg-paper-deep focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-blue"
-              href="#work"
+              className="inline-flex min-h-14 items-center justify-between gap-3 rounded-[18px] border border-blue/20 bg-blue/10 px-4 text-sm font-black text-blue transition hover:-translate-y-0.5 hover:bg-blue/15 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-blue"
+              href={linkedInUrl}
+              rel="noopener noreferrer"
+              target="_blank"
             >
-              Revisit work
+              <span className="inline-flex items-center gap-3">
+                <span
+                  aria-hidden="true"
+                  className="grid h-6 w-6 place-items-center rounded-md bg-blue text-[11px] font-black lowercase text-cream"
+                >
+                  in
+                </span>
+                LinkedIn
+              </span>
               <ArrowUpRight aria-hidden="true" size={16} strokeWidth={2.5} />
             </a>
+            <div className="inline-flex min-h-14 items-center gap-3 rounded-[18px] border border-ink/12 bg-cream/72 px-4 text-sm font-black text-ink/76 sm:col-span-2">
+              <Phone aria-hidden="true" size={16} strokeWidth={2.5} />
+              <a
+                className="mr-auto transition hover:text-blue focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-blue"
+                href={`tel:${phoneNumber}`}
+              >
+                {phoneNumber}
+              </a>
+              <button
+                aria-label="Copy phone number"
+                className="inline-flex h-9 items-center gap-2 rounded-full border border-ink/12 bg-paper px-3 text-[11px] font-black uppercase text-ink/70 transition hover:-translate-y-0.5 hover:bg-paper-deep focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-blue"
+                onClick={copyPhoneNumber}
+                type="button"
+              >
+                {copied ? (
+                  <Check aria-hidden="true" size={14} strokeWidth={2.6} />
+                ) : (
+                  <Copy aria-hidden="true" size={14} strokeWidth={2.6} />
+                )}
+                {copied ? "Copied" : "Copy"}
+              </button>
+            </div>
           </div>
         </Reveal>
 
@@ -41,7 +116,7 @@ export function ContactPanel() {
             <div className="h-28 rounded-t-[22px] bg-berry shadow-inner" />
             <div className="rounded-b-[22px] border-x border-b border-ink/10 bg-cream p-5 text-center">
               <p className="font-hand text-3xl leading-7 text-ink">
-                Good ideas steep well.
+                Growth ideas steep well.
               </p>
               <div className="mx-auto mt-5 h-12 w-12 rounded-full border border-dashed border-stamp" />
             </div>

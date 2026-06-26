@@ -58,7 +58,7 @@ export function BehindBaker() {
 
           <a
             className="mt-8 inline-flex h-12 items-center gap-3 rounded-full bg-ink px-6 text-xs font-black uppercase text-cream transition hover:-translate-y-0.5 hover:bg-berry focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-blue"
-            href="#recipes"
+            href="#work"
           >
             Secret recipe
             <ArrowUpRight aria-hidden="true" size={16} strokeWidth={2.5} />

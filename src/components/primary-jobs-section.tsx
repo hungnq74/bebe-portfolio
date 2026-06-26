@@ -63,7 +63,10 @@ export function PrimaryJobsSection({
   };
 
   return (
-    <section className="primary-jobs paper-edge bg-paper py-14 sm:py-20" id="recipes">
+    <section
+      className="primary-jobs paper-edge scroll-mt-28 bg-paper py-14 sm:py-20"
+      id="work"
+    >
       <div className="section-shell">
         <Reveal className="mb-8 flex flex-col justify-between gap-5 lg:flex-row lg:items-end">
           <div>
@@ -153,7 +156,7 @@ export function PrimaryJobsSection({
           </div>
         </div>
 
-        <div className="mt-8 scroll-mt-40" id="work" ref={detailRef}>
+        <div className="mt-8 scroll-mt-40" ref={detailRef}>
           <AnimatePresence mode="wait">
             <motion.div
               animate={{ opacity: 1, y: 0 }}
