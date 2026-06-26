@@ -14,9 +14,9 @@ export function BehindBaker() {
     <section className="about-feature bg-cream py-14 sm:py-20" id="about">
       <div className="section-shell grid gap-8 lg:grid-cols-[1fr_0.78fr] lg:items-center">
         <Reveal>
-          <p className="font-hand text-2xl text-stamp">about me</p>
+          <p className="font-hand text-2xl text-stamp">Pull up a seat</p>
           <h2 className="font-display mt-1 text-5xl leading-none text-ink sm:text-7xl">
-            Pull up a seat.
+            About me
           </h2>
           <div className="mt-6 space-y-5 text-base font-semibold leading-8 text-ink/74">
             <p>

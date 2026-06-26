@@ -27,8 +27,8 @@ export function HeroBakeryScene() {
 
           <Reveal delay={0.08}>
             <h1 className="font-serif max-w-[720px] text-[clamp(3.8rem,8.4vw,8rem)] font-black leading-[0.86] text-berry">
-              <span className="block">Today&apos;s</span>
-              <span className="block">Special</span>
+              <span className="block">Khanh</span>
+              <span className="block">Huyen</span>
             </h1>
           </Reveal>
 

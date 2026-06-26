@@ -25,7 +25,7 @@ export const caseStudies: CaseStudy[] = [
     id: "dumpling-bar",
     title: "Dumpling Bar Encinitas",
     tagline: "break-record revenue in 3rd month since signing contract",
-    services: ["Growth MKT", "F&B campaign", "Revenue"],
+    services: ["Growth Marketing", "F&B campaign", "Revenue"],
     summary:
       "A growth recipe for turning early campaign momentum into measurable restaurant revenue.",
     image: "/images/projects/dumpling-bar/thumbnail.jpg",

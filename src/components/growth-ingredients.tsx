@@ -10,7 +10,7 @@ import { Reveal } from "@/components/reveal";
 
 const ingredients = [
   {
-    label: "Growth MKT",
+    label: "Growth Marketing",
     note: "Revenue-minded experiments",
     icon: ChartNoAxesCombined,
   },
@@ -20,7 +20,7 @@ const ingredients = [
     icon: Gamepad2,
   },
   {
-    label: "Digital MKT",
+    label: "Digital Marketing",
     note: "Content to conversion paths",
     icon: Smartphone,
   },
