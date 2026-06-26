@@ -16,7 +16,7 @@ export function SignatureRecipesIntro() {
               Fortune Marketing Group
             </span>
             <span className="rounded-full border border-blue/20 bg-blue/10 px-3 py-2 text-[11px] font-black uppercase text-blue">
-              Senior Account Management
+              Account Management Lead
             </span>
           </div>
           <p className="mt-5 max-w-xl text-base font-semibold leading-7 text-ink/72">

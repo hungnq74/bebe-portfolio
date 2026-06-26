@@ -40,7 +40,7 @@ export const primaryJobs: PrimaryJob[] = [
     id: "fortune",
     company: "Fortune Marketing Group",
     shortName: "Fortune",
-    role: "Senior Account Management",
+    role: "Account Management Lead",
     intro:
       "I'm growing from a Marketing Intern into a Senior Account Manager in 1 year, currently playing as a core member, handling key clients and holding 10 accounts.",
     visual: {
@@ -86,7 +86,7 @@ export const primaryJobs: PrimaryJob[] = [
     id: "zalo",
     company: "Zalo",
     shortName: "Zalo",
-    role: "Marketing Operations Collaborator",
+    role: "Product Growth",
     intro:
       "I supported digital marketing for Zalo Games, primarily planning and executing marketing direction for key game titles, including campaign planning, P&L planning, and performance optimization.",
     visual: {
