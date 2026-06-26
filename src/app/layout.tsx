@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Bebas_Neue, Caveat, Fraunces, Inter } from "next/font/google";
+import { Analytics } from "@vercel/analytics/next";
 import { LenisProvider } from "@/components/lenis-provider";
 import "./globals.css";
 
@@ -45,6 +46,7 @@ export default function RootLayout({
         className={`${inter.variable} ${bebas.variable} ${fraunces.variable} ${caveat.variable}`}
       >
         <LenisProvider>{children}</LenisProvider>
+        <Analytics />
       </body>
     </html>
   );
