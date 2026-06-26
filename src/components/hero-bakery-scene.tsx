@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 import { motion, useReducedMotion } from "motion/react";
 import { Reveal } from "@/components/reveal";
@@ -57,6 +58,30 @@ export function HeroBakeryScene() {
                 <ArrowUpRight aria-hidden="true" size={15} strokeWidth={2.4} />
               </a>
             </div>
+          </Reveal>
+
+          <Reveal delay={0.32}>
+            <Link
+              className="everyhalf-hero-card mt-7 flex max-w-[470px] items-center gap-4 rounded-[20px] border border-stamp/25 bg-cream/82 px-4 py-3 text-ink shadow-[0_18px_38px_rgba(55,25,24,0.14)] transition hover:-translate-y-1 hover:border-blue/32 hover:bg-cream focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-blue"
+              href="/everyhalf"
+            >
+              <span className="everyhalf-hero-badge" aria-hidden="true">
+                Every
+                <br />
+                Half
+              </span>
+              <span className="min-w-0 flex-1">
+                <span className="font-serif block text-xl font-black leading-none text-berry sm:text-2xl">
+                  For EveryHalf
+                </span>
+                <span className="mt-1 block text-sm font-semibold leading-5 text-ink/66">
+                  See why this brand has meant so much to me.
+                </span>
+              </span>
+              <span className="grid h-9 w-9 shrink-0 place-items-center rounded-full border border-ink/12 bg-paper text-berry">
+                <ArrowUpRight aria-hidden="true" size={16} strokeWidth={2.5} />
+              </span>
+            </Link>
           </Reveal>
         </div>
 

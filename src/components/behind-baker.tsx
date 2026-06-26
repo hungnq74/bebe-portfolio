@@ -2,13 +2,6 @@ import Image from "next/image";
 import { ArrowUpRight } from "lucide-react";
 import { Reveal } from "@/components/reveal";
 
-const highlights = [
-  "attention into action",
-  "in-store traffic",
-  "daily cravings",
-  "record-breaking revenue",
-];
-
 export function BehindBaker() {
   return (
     <section className="about-feature bg-cream py-14 sm:py-20" id="about">
@@ -20,17 +13,10 @@ export function BehindBaker() {
           </h2>
           <div className="mt-6 space-y-5 text-base font-semibold leading-8 text-ink/74">
             <p>
-              I&apos;m a creative-oriented growth marketer who turns{" "}
-              <span className="about-highlight">attention into action</span> -
-              impressions into{" "}
-              <span className="about-highlight">in-store traffic</span>,
-              first-time visitors into regulars, and brands into{" "}
-              <span className="about-highlight">daily cravings</span>, with
-              work tied to{" "}
-              <span className="about-highlight">
-                record-breaking revenue
-              </span>{" "}
-              and recognizable brands.
+              I&apos;m a creative-oriented growth marketer who turns attention
+              into action - impressions into in-store traffic, first-time
+              visitors into regulars, and brands into daily cravings, with work
+              tied to record-breaking revenue and recognizable brands.
             </p>
             <p>
               My background blends product, creative, and growth: creative UA,
@@ -43,17 +29,6 @@ export function BehindBaker() {
               So pull up a seat and explore my secret recipe from the Growth
               Bar menu: ideas, insights, experiments, and proof of work.
             </p>
-          </div>
-
-          <div className="mt-7 flex flex-wrap gap-2">
-            {highlights.map((highlight) => (
-              <span
-                className="rounded-full border border-blue/20 bg-blue/10 px-3 py-2 text-[11px] font-black uppercase text-blue"
-                key={highlight}
-              >
-                {highlight}
-              </span>
-            ))}
           </div>
 
           <a
