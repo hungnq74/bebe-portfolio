@@ -3,6 +3,8 @@
 import type { CSSProperties } from "react";
 import { ArrowUpRight } from "lucide-react";
 import { motion, useReducedMotion } from "motion/react";
+import Image from "next/image";
+import Link from "next/link";
 import type { CaseStudy } from "@/data/cases";
 import { cn } from "@/lib/utils";
 
@@ -35,37 +37,33 @@ export function CaseTagCard({
     "--case-image": `url(${caseStudy.image})`,
     "--case-position": caseStudy.imagePosition,
   };
+  const cardClassName = cn(
+    "case-tag group flex w-full flex-col justify-between p-5 text-left transition focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-blue",
+    `case-tag-${caseStudy.shape}`,
+    caseStudy.palette.ink === "#fff8e9" && "case-tag-dark",
+    caseStudy.detailHref && "case-tag-link",
+  );
+  const motionProps = {
+    initial: reduceMotion
+      ? false
+      : { opacity: 0, y: 24, rotate: index % 2 ? 1.5 : -1.5 },
+    transition: {
+      duration: 0.55,
+      delay: Math.min(index * 0.05, 0.28),
+      ease: [0.22, 1, 0.36, 1] as const,
+    },
+    viewport: { once: true, margin: "-8% 0px" },
+    whileHover: reduceMotion
+      ? undefined
+      : { y: -12, rotate: index % 2 ? -1.5 : 1.5 },
+    whileInView: reduceMotion
+      ? undefined
+      : { opacity: 1, y: 0, rotate: index % 2 ? 1 : -1 },
+    whileTap: { scale: 0.985 },
+  };
 
-  return (
-    <motion.button
-      aria-pressed={isSelected}
-      className={cn(
-        "case-tag group flex w-full flex-col justify-between p-5 text-left transition focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-blue",
-        `case-tag-${caseStudy.shape}`,
-        caseStudy.palette.ink === "#fff8e9" && "case-tag-dark",
-      )}
-      initial={
-        reduceMotion
-          ? false
-          : { opacity: 0, y: 24, rotate: index % 2 ? 1.5 : -1.5 }
-      }
-      onClick={() => onSelect(caseStudy)}
-      style={style}
-      transition={{
-        duration: 0.55,
-        delay: Math.min(index * 0.05, 0.28),
-        ease: [0.22, 1, 0.36, 1],
-      }}
-      type="button"
-      viewport={{ once: true, margin: "-8% 0px" }}
-      whileHover={
-        reduceMotion ? undefined : { y: -12, rotate: index % 2 ? -1.5 : 1.5 }
-      }
-      whileInView={
-        reduceMotion ? undefined : { opacity: 1, y: 0, rotate: index % 2 ? 1 : -1 }
-      }
-      whileTap={{ scale: 0.985 }}
-    >
+  const cardContent = (
+    <>
       <span className="pointer-events-none relative z-10 mt-8 block">
         <span className="block text-[10px] font-black uppercase opacity-[0.62]">
           Signature recipe
@@ -79,6 +77,17 @@ export function CaseTagCard({
         aria-hidden="true"
         className="case-media pointer-events-none relative z-10 my-4 block aspect-[1.12] w-full overflow-hidden rounded-[18px] border border-current/10 shadow-inner"
       >
+        {caseStudy.logoPreview ? (
+          <span className="case-logo-preview">
+            <Image
+              alt=""
+              className="object-contain"
+              fill
+              sizes="160px"
+              src={caseStudy.logoPreview}
+            />
+          </span>
+        ) : null}
         <span className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-white/10 opacity-70" />
       </span>
 
@@ -103,6 +112,34 @@ export function CaseTagCard({
           />
         </span>
       </span>
+    </>
+  );
+
+  if (caseStudy.detailHref) {
+    return (
+      <motion.div {...motionProps}>
+        <Link
+          aria-label={`Open ${caseStudy.title} case study`}
+          className={cardClassName}
+          href={caseStudy.detailHref}
+          style={style}
+        >
+          {cardContent}
+        </Link>
+      </motion.div>
+    );
+  }
+
+  return (
+    <motion.button
+      aria-pressed={isSelected}
+      className={cardClassName}
+      onClick={() => onSelect(caseStudy)}
+      style={style}
+      type="button"
+      {...motionProps}
+    >
+      {cardContent}
     </motion.button>
   );
 }

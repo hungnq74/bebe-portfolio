@@ -6,6 +6,9 @@ export type CaseStudy = {
   summary: string;
   image: string;
   imagePosition: string;
+  detailHref?: string;
+  logoPreview?: string;
+  thumbnail?: string;
   palette: {
     background: string;
     ink: string;
@@ -20,13 +23,16 @@ const recipeSheet = "/images/generated/signature-recipe-card-sheet.png";
 export const caseStudies: CaseStudy[] = [
   {
     id: "dumpling-bar",
-    title: "Dumpling Bar",
+    title: "Dumpling Bar Encinitas",
     tagline: "break-record revenue in 3rd month since signing contract",
     services: ["Growth MKT", "F&B campaign", "Revenue"],
     summary:
       "A growth recipe for turning early campaign momentum into measurable restaurant revenue.",
-    image: recipeSheet,
-    imagePosition: "0% 0%",
+    image: "/images/projects/dumpling-bar/thumbnail.jpg",
+    imagePosition: "50% 50%",
+    detailHref: "/work/dumpling-bar-encinitas",
+    logoPreview: "/images/projects/dumpling-bar/logo.png",
+    thumbnail: "/images/projects/dumpling-bar/thumbnail.jpg",
     palette: {
       background: "#fff3dd",
       ink: "#55201f",
@@ -40,14 +46,17 @@ export const caseStudies: CaseStudy[] = [
     ],
   },
   {
-    id: "urban-matcha-san-francisco",
-    title: "Urban Matcha San Francisco",
-    tagline: "constantly lines queuing up everyday in 2 weeks of Soft Opening",
-    services: ["Launch", "Social proof", "Foot traffic"],
+    id: "urban-matcha-castro-valley",
+    title: "Urban Matcha Castro Valley",
+    tagline: "500 items sold per day during the launch period",
+    services: ["Soft opening", "Organic social", "Walk-ins"],
     summary:
-      "A soft-opening launch story designed to create visible demand and keep the line moving.",
-    image: recipeSheet,
-    imagePosition: "50% 0%",
+      "A bright soft-opening launch that turned a new matcha cafe into early curiosity, walk-ins, and strong sales momentum.",
+    image: "/images/projects/urban-matcha-castro-valley/thumbnail.jpg",
+    imagePosition: "50% 50%",
+    detailHref: "/work/urban-matcha-castro-valley",
+    logoPreview: "/images/projects/urban-matcha-castro-valley/logo.png",
+    thumbnail: "/images/projects/urban-matcha-castro-valley/thumbnail.jpg",
     palette: {
       background: "#dfe7d1",
       ink: "#30401f",
@@ -55,31 +64,33 @@ export const caseStudies: CaseStudy[] = [
     },
     shape: "ticket",
     results: [
-      "Positioned the opening around visible demand",
-      "Translated queue energy into social proof",
-      "Supported launch-period foot traffic",
+      "Defined matcha-focused launch positioning",
+      "Translated bright brand energy into walk-ins",
+      "Built social momentum during the soft opening",
     ],
   },
   {
     id: "tram-cream-coffee",
     title: "Tram Cream Coffee",
-    tagline:
-      "successfully communicated for 2 grand opening for new locations that bring instore traffic",
-    services: ["Grand opening", "Messaging", "Local reach"],
+    tagline: "new drink collection launch with stronger organic engagement",
+    services: ["Content launch", "UGC", "eWOM"],
     summary:
-      "A grand-opening communication system for helping new locations become places people notice and visit.",
-    image: recipeSheet,
-    imagePosition: "100% 0%",
+      "A new drink collection launch that turned shot lists, short-form edits, and customer reactions into stronger social engagement.",
+    image: "/images/projects/tram-cream-coffee/thumbnail.png",
+    imagePosition: "50% 50%",
+    detailHref: "/work/tram-cream-coffee",
+    logoPreview: "/images/projects/tram-cream-coffee/logo.png",
+    thumbnail: "/images/projects/tram-cream-coffee/thumbnail.png",
     palette: {
-      background: "#d8e3ea",
+      background: "#f2e9df",
       ink: "#1f3d54",
-      accent: "#2f6f9f",
+      accent: "#d58a78",
     },
     shape: "arch",
     results: [
-      "Clarified opening messages for new locations",
-      "Built local traffic hooks around launch timing",
-      "Turned campaign updates into visit intent",
+      "Defined content direction for a new collection",
+      "Turned customer reactions into UGC and eWOM",
+      "Tracked launch-period social growth",
     ],
   },
   {

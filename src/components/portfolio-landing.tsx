@@ -8,6 +8,7 @@ import { ContactPanel } from "@/components/contact-panel";
 import { Footer } from "@/components/footer";
 import { GrowthIngredients } from "@/components/growth-ingredients";
 import { HeroBakeryScene } from "@/components/hero-bakery-scene";
+import { PortfolioCoverGate } from "@/components/portfolio-cover-gate";
 import { PrimaryJobsSection } from "@/components/primary-jobs-section";
 import { SiteNav } from "@/components/site-nav";
 
@@ -16,6 +17,7 @@ export function PortfolioLanding() {
 
   return (
     <main className="min-h-screen">
+      <PortfolioCoverGate />
       <SiteNav />
       <HeroBakeryScene />
       <GrowthIngredients />
