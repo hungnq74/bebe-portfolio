@@ -66,9 +66,12 @@ export function HeroBakeryScene() {
               href="/everyhalf"
             >
               <span className="everyhalf-hero-badge" aria-hidden="true">
-                Every
-                <br />
-                Half
+                <Image
+                  alt=""
+                  height={58}
+                  src="/images/everyhalf/everyhalf-logo-badge.png"
+                  width={58}
+                />
               </span>
               <span className="min-w-0 flex-1">
                 <span className="font-serif block text-xl font-black leading-none text-berry sm:text-2xl">

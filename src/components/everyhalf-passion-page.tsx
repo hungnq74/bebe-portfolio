@@ -1,10 +1,9 @@
 "use client";
 
-import { useRef, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowLeft, ArrowUpRight, Heart, Sparkles } from "lucide-react";
-import { AnimatePresence, motion, useReducedMotion } from "motion/react";
+import { ArrowLeft, Heart, Sparkles } from "lucide-react";
+import { motion, useReducedMotion } from "motion/react";
 
 const everyHalfPhotos = [
   {
@@ -100,20 +99,7 @@ const everyHalfPhotos = [
 ];
 
 export function EveryHalfPassionPage() {
-  const [isRevealed, setIsRevealed] = useState(false);
-  const collageRef = useRef<HTMLDivElement>(null);
   const reduceMotion = useReducedMotion();
-
-  const revealPhotos = () => {
-    setIsRevealed(true);
-
-    window.requestAnimationFrame(() => {
-      collageRef.current?.scrollIntoView({
-        behavior: reduceMotion ? "auto" : "smooth",
-        block: "start",
-      });
-    });
-  };
 
   return (
     <main className="everyhalf-page min-h-screen">
@@ -160,16 +146,6 @@ export function EveryHalfPassionPage() {
               </p>
             </div>
 
-            <button
-              className="everyhalf-reveal-button"
-              onClick={revealPhotos}
-              type="button"
-            >
-              {isRevealed
-                ? "Gallery is open"
-                : "Let's see how much I love Every Half"}
-              <ArrowUpRight aria-hidden="true" size={16} strokeWidth={2.5} />
-            </button>
           </div>
 
           <div className="everyhalf-portrait-stack" aria-label="Khanh Huyen portrait">
@@ -188,7 +164,12 @@ export function EveryHalfPassionPage() {
                 src="/images/khanh-huyen-about.jpg"
               />
               <span className="everyhalf-portrait-stamp stamp-ring">
-                Every Half
+                <Image
+                  alt="EveryHalf logo"
+                  height={82}
+                  src="/images/everyhalf/everyhalf-logo-badge.png"
+                  width={82}
+                />
               </span>
             </div>
             <span className="everyhalf-sticky-note">
@@ -202,74 +183,69 @@ export function EveryHalfPassionPage() {
           </div>
         </section>
 
-        <div className="everyhalf-reveal-anchor" ref={collageRef}>
-          <AnimatePresence>
-            {isRevealed ? (
-              <motion.section
-                animate={{ opacity: 1, y: 0 }}
-                aria-labelledby="everyhalf-gallery"
-                className="everyhalf-gallery"
-                exit={{ opacity: 0, y: reduceMotion ? 0 : 20 }}
-                initial={reduceMotion ? false : { opacity: 0, y: 44 }}
-                transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
-              >
-                <div className="everyhalf-gallery-heading">
-                  <p className="font-hand text-3xl text-stamp">
-                    here&apos;s my little love letter to you
-                  </p>
-                  <h2 id="everyhalf-gallery">
-                    A collection of moments that kept me coming back.
-                  </h2>
-                </div>
+        <div className="everyhalf-reveal-anchor">
+          <motion.section
+            animate={{ opacity: 1, y: 0 }}
+            aria-labelledby="everyhalf-gallery"
+            className="everyhalf-gallery"
+            initial={reduceMotion ? false : { opacity: 0, y: 44 }}
+            transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
+          >
+            <div className="everyhalf-gallery-heading">
+              <p className="font-hand text-3xl text-stamp">
+                here&apos;s my little love letter to you
+              </p>
+              <h2 id="everyhalf-gallery">
+                A collection of moments that kept me coming back.
+              </h2>
+            </div>
 
-                <div className="everyhalf-collage-grid">
-                  {everyHalfPhotos.map((photo, index) => (
-                    <motion.figure
-                      animate={
-                        reduceMotion
-                          ? { opacity: 1 }
-                          : { opacity: 1, rotate: photo.rotate, scale: 1, y: 0 }
-                      }
-                      className="everyhalf-polaroid"
-                      initial={
-                        reduceMotion
-                          ? false
-                          : {
-                              opacity: 0,
-                              rotate: -photo.rotate,
-                              scale: 0.84,
-                              y: 72 + (index % 3) * 12,
-                            }
-                      }
-                      key={photo.src}
-                      transition={{
-                        duration: 0.58,
-                        delay: Math.min(index * 0.045, 0.56),
-                        ease: [0.22, 1, 0.36, 1],
-                      }}
-                    >
-                      <div className="everyhalf-polaroid-image">
-                        <Image
-                          alt={photo.alt}
-                          className="object-cover"
-                          fill
-                          sizes="(min-width: 1180px) 220px, (min-width: 720px) 30vw, 86vw"
-                          src={photo.src}
-                        />
-                      </div>
-                      <figcaption>{photo.note}</figcaption>
-                    </motion.figure>
-                  ))}
-                </div>
+            <div className="everyhalf-collage-grid">
+              {everyHalfPhotos.map((photo, index) => (
+                <motion.figure
+                  animate={
+                    reduceMotion
+                      ? { opacity: 1 }
+                      : { opacity: 1, rotate: photo.rotate, scale: 1, y: 0 }
+                  }
+                  className="everyhalf-polaroid"
+                  initial={
+                    reduceMotion
+                      ? false
+                      : {
+                          opacity: 0,
+                          rotate: -photo.rotate,
+                          scale: 0.84,
+                          y: 72 + (index % 3) * 12,
+                        }
+                  }
+                  key={photo.src}
+                  transition={{
+                    duration: 0.58,
+                    delay: Math.min(index * 0.045, 0.56),
+                    ease: [0.22, 1, 0.36, 1],
+                  }}
+                >
+                  <div className="everyhalf-polaroid-image">
+                    <Image
+                      alt={photo.alt}
+                      className="object-cover"
+                      fill
+                      sizes="(min-width: 1180px) 220px, (min-width: 720px) 30vw, 86vw"
+                      src={photo.src}
+                    />
+                  </div>
+                  <figcaption>{photo.note}</figcaption>
+                </motion.figure>
+              ))}
+            </div>
 
-                <div className="everyhalf-envelope">
-                  <Sparkles aria-hidden="true" size={18} strokeWidth={2.4} />
-                  Ideas I&apos;d love to build with you inside.
-                  <Heart aria-hidden="true" size={16} strokeWidth={2.4} />
-                </div>
-              </motion.section>
-            ) : null}
-          </AnimatePresence>
+            <div className="everyhalf-envelope">
+              <Sparkles aria-hidden="true" size={18} strokeWidth={2.4} />
+              Ideas I&apos;d love to build with you inside.
+              <Heart aria-hidden="true" size={16} strokeWidth={2.4} />
+            </div>
+          </motion.section>
         </div>
       </div>
     </main>
