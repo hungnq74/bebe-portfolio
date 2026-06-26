@@ -40,7 +40,7 @@ export const primaryJobs: PrimaryJob[] = [
     id: "fortune",
     company: "Fortune Marketing Group",
     shortName: "Fortune",
-    role: "Account Management Lead",
+    role: "Senior Account Manager",
     intro:
       "I'm growing from a Marketing Intern into a Senior Account Manager in 1 year, currently playing as a core member, handling key clients and holding 10 accounts.",
     visual: {

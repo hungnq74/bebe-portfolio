@@ -72,7 +72,7 @@ export function PrimaryJobsSection({
           <div>
             <p className="font-hand text-2xl text-stamp">choose your station</p>
             <h2 className="font-display mt-1 text-5xl leading-none text-ink sm:text-7xl">
-              Primary Jobs
+              Signature Recipes
             </h2>
           </div>
           <p className="max-w-xl text-sm font-semibold leading-6 text-ink/66 sm:text-base">
@@ -196,7 +196,10 @@ function JobHeader({ job }: { job: PrimaryJob }) {
         </p>
       </div>
 
-      <div className="primary-job-feature-visual relative aspect-[1.45] overflow-hidden rounded-[26px] border border-ink/10 bg-cream shadow-[0_20px_56px_rgba(55,25,24,0.14)]">
+      <div
+        className="primary-job-feature-visual relative aspect-[1.45] overflow-hidden rounded-[26px] border border-ink/10 bg-cream shadow-[0_20px_56px_rgba(55,25,24,0.14)]"
+        data-job-id={job.id}
+      >
         <Image
           alt=""
           className="object-cover"

@@ -18,8 +18,6 @@ export type CaseStudy = {
   results: string[];
 };
 
-const recipeSheet = "/images/generated/signature-recipe-card-sheet.png";
-
 export const caseStudies: CaseStudy[] = [
   {
     id: "dumpling-bar",
@@ -96,13 +94,15 @@ export const caseStudies: CaseStudy[] = [
   {
     id: "bobapop-san-diego",
     title: "BoBaPop San Diego",
-    tagline:
-      "Rebranding campaign successfully bringing a clearer and unique brand identities",
-    services: ["Rebranding", "Brand identity", "Campaign"],
+    tagline: "2x sales growth after the rebranding campaign",
+    services: ["Rebranding", "Product-led storytelling", "Local activation"],
     summary:
-      "A rebrand campaign that sharpened the brand's personality and made its identity easier to recognize.",
-    image: recipeSheet,
-    imagePosition: "0% 100%",
+      "A rebrand campaign that turned a familiar boba spot into a younger, more dynamic drink destination.",
+    image: "/images/projects/bobapop-san-diego/thumbnail.jpg",
+    imagePosition: "50% 50%",
+    detailHref: "/work/bobapop-san-diego",
+    logoPreview: "/images/projects/bobapop-san-diego/logo.png",
+    thumbnail: "/images/projects/bobapop-san-diego/thumbnail.jpg",
     palette: {
       background: "#f2dfd8",
       ink: "#572421",
@@ -110,20 +110,23 @@ export const caseStudies: CaseStudy[] = [
     },
     shape: "notched",
     results: [
-      "Defined clearer brand signals",
-      "Built a more ownable campaign look",
-      "Created a distinct identity system for recall",
+      "Repositioned BoBaPop beyond its original boba identity",
+      "Built a hero-product story for stronger differentiation",
+      "Expanded awareness through local collaborations",
     ],
   },
   {
     id: "otay-sushi-and-crab",
     title: "Otay Sushi and Crab",
-    tagline: "grow from 0 - 12k followers organically in 8 months",
-    services: ["Organic social", "Content growth", "Community"],
+    tagline: "$180K monthly revenue after launching the AYCE menu",
+    services: ["AYCE launch", "Product-led messaging", "Organic social"],
     summary:
-      "An organic social growth recipe for building audience, recognition, and repeatable content momentum.",
-    image: recipeSheet,
-    imagePosition: "50% 100%",
+      "An AYCE menu campaign that turned affordable, high-quality seafood into stronger traffic and long-term sales momentum.",
+    image: "/images/projects/otay-sushi-and-crab/thumbnail.jpg",
+    imagePosition: "50% 50%",
+    detailHref: "/work/otay-sushi-and-crab",
+    logoPreview: "/images/projects/otay-sushi-and-crab/logo.png",
+    thumbnail: "/images/projects/otay-sushi-and-crab/thumbnail.jpg",
     palette: {
       background: "#fff6dd",
       ink: "#3b3422",
@@ -131,21 +134,23 @@ export const caseStudies: CaseStudy[] = [
     },
     shape: "scallop",
     results: [
-      "Built a consistent organic content cadence",
-      "Grew the account from zero to 12k followers",
-      "Turned visual food appeal into audience momentum",
+      "Built demand around the AYCE menu launch",
+      "Highlighted the signature House Special sauce",
+      "Connected product-led messaging to stronger revenue",
     ],
   },
   {
     id: "manna-heaven-bbq",
     title: "Manna Heaven BBQ",
-    tagline:
-      "managing the marketing strategy and campaign of the biggest KBBQ chain in San Diego",
-    services: ["Strategy", "Campaign management", "KBBQ chain"],
+    tagline: "200% revenue growth after 3 months, reaching over $200K",
+    services: ["KBBQ positioning", "Multi-location growth", "Social content"],
     summary:
-      "A multi-location marketing strategy and campaign-management system for a major KBBQ brand.",
-    image: recipeSheet,
-    imagePosition: "100% 100%",
+      "A multi-location growth campaign that repositioned Manna Heaven BBQ into an immersive Korean dining experience.",
+    image: "/images/projects/manna-heaven-bbq/thumbnail.jpg",
+    imagePosition: "50% 50%",
+    detailHref: "/work/manna-heaven-bbq",
+    logoPreview: "/images/projects/manna-heaven-bbq/logo.png",
+    thumbnail: "/images/projects/manna-heaven-bbq/thumbnail.jpg",
     palette: {
       background: "#3a231f",
       ink: "#fff8e9",
@@ -153,9 +158,9 @@ export const caseStudies: CaseStudy[] = [
     },
     shape: "ticket",
     results: [
-      "Managed campaign strategy across a large local chain",
-      "Organized marketing priorities around brand scale",
-      "Kept F&B creative tied to business outcomes",
+      "Repositioned KBBQ around Korean culture and group dining",
+      "Expanded support from one branch to all 6 locations",
+      "Turned social content momentum into stronger revenue",
     ],
   },
 ];

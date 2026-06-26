@@ -21,7 +21,7 @@ export function HeroBakeryScene() {
                 Today&apos;s special
               </span>
               <span className="font-serif text-xl italic text-blue sm:text-2xl">
-                photography
+                made to crave
               </span>
             </div>
           </Reveal>

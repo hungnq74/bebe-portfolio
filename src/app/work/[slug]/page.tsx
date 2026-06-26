@@ -142,7 +142,13 @@ function ProjectDetailPage({ project }: { project: ProjectDetail }) {
                     sizes="(min-width: 1024px) 30vw, (min-width: 640px) 45vw, 92vw"
                     src={image.src}
                   />
-                  <figcaption>{String(index + 1).padStart(2, "0")}</figcaption>
+                  <figcaption
+                    className={
+                      image.caption ? "work-detail-gallery-caption" : undefined
+                    }
+                  >
+                    {image.caption ?? String(index + 1).padStart(2, "0")}
+                  </figcaption>
                 </figure>
               ))}
             </div>
@@ -168,7 +174,7 @@ function ProjectDetailPage({ project }: { project: ProjectDetail }) {
                 target="_blank"
               >
                 <Image
-                  alt={`${project.title} ${video.title} Instagram Reel thumbnail`}
+                  alt={`${project.title} ${video.title} ${video.platform} thumbnail`}
                   className="object-cover"
                   fill
                   sizes="(min-width: 1024px) 25vw, (min-width: 640px) 45vw, 92vw"
