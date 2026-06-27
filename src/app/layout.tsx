@@ -30,7 +30,7 @@ const caveat = Caveat({
 });
 
 export const metadata: Metadata = {
-  title: "Bebe Creative Portfolio",
+  title: "Khanh Huyen's Portfolio",
   description:
     "A tactile creative marketing portfolio built with paper tags, case-study cards, and warm editorial storytelling.",
 };
