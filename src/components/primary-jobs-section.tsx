@@ -1,10 +1,10 @@
 "use client";
 
 import type { CSSProperties } from "react";
-import { useRef, useState } from "react";
+import { useState } from "react";
 import Image from "next/image";
 import { ArrowUpRight, Sparkles } from "lucide-react";
-import { AnimatePresence, motion, useReducedMotion } from "motion/react";
+import { motion, useReducedMotion } from "motion/react";
 import { CaseTagCard } from "@/components/case-tag-card";
 import { Reveal } from "@/components/reveal";
 import type { CaseStudy } from "@/data/cases";
@@ -36,6 +36,10 @@ function jobStyle(job: PrimaryJob): JobStyle {
   };
 }
 
+function jobSectionId(jobId: PrimaryJobId) {
+  return `signature-recipe-${jobId}`;
+}
+
 export function PrimaryJobsSection({
   cases,
   onSelectCase,
@@ -43,23 +47,17 @@ export function PrimaryJobsSection({
 }: PrimaryJobsSectionProps) {
   const [activeJobId, setActiveJobId] =
     useState<PrimaryJobId>(defaultPrimaryJobId);
-  const detailRef = useRef<HTMLDivElement>(null);
   const reduceMotion = useReducedMotion();
-
-  const activeJob =
-    primaryJobs.find((job) => job.id === activeJobId) ?? primaryJobs[0];
 
   const selectJob = (jobId: PrimaryJobId) => {
     setActiveJobId(jobId);
 
-    if (!window.matchMedia("(min-width: 1024px)").matches) {
-      window.requestAnimationFrame(() => {
-        detailRef.current?.scrollIntoView({
-          behavior: reduceMotion ? "auto" : "smooth",
-          block: "start",
-        });
+    window.requestAnimationFrame(() => {
+      document.getElementById(jobSectionId(jobId))?.scrollIntoView({
+        behavior: reduceMotion ? "auto" : "smooth",
+        block: "start",
       });
-    }
+    });
   };
 
   return (
@@ -76,7 +74,7 @@ export function PrimaryJobsSection({
             </h2>
           </div>
           <p className="max-w-xl text-sm font-semibold leading-6 text-ink/66 sm:text-base">
-            Three roles from the Growth Bar menu. Pick a card to see the
+            Three roles from the Growth Bar menu. Pick a card to jump to its
             matching proof of work below.
           </p>
         </Reveal>
@@ -84,11 +82,12 @@ export function PrimaryJobsSection({
         <div className="primary-job-picker">
           <div className="grid gap-4 sm:grid-cols-3">
             {primaryJobs.map((job, index) => {
-              const isActive = job.id === activeJob.id;
+              const isActive = job.id === activeJobId;
 
               return (
                 <motion.button
-                  aria-label={`Show ${job.company} work`}
+                  aria-controls={jobSectionId(job.id)}
+                  aria-label={`Jump to ${job.company} work`}
                   aria-pressed={isActive}
                   className="primary-job-card group text-left transition focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-blue"
                   data-active={isActive ? "true" : "false"}
@@ -156,27 +155,33 @@ export function PrimaryJobsSection({
           </div>
         </div>
 
-        <div className="mt-8 scroll-mt-40" ref={detailRef}>
-          <AnimatePresence mode="wait">
+        <div className="mt-8 grid gap-8 lg:gap-10">
+          {primaryJobs.map((job, index) => (
             <motion.div
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: reduceMotion ? 0 : -10 }}
+              className="scroll-mt-36"
+              id={jobSectionId(job.id)}
               initial={reduceMotion ? false : { opacity: 0, y: 18 }}
-              key={activeJob.id}
-              transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
+              key={job.id}
+              transition={{
+                duration: 0.45,
+                delay: Math.min(index * 0.06, 0.18),
+                ease: [0.22, 1, 0.36, 1],
+              }}
+              viewport={{ once: true, margin: "-80px" }}
+              whileInView={reduceMotion ? undefined : { opacity: 1, y: 0 }}
             >
-              {activeJob.kind === "recipes" ? (
+              {job.kind === "recipes" ? (
                 <FortuneJobDetail
                   cases={cases}
-                  job={activeJob}
+                  job={job}
                   onSelectCase={onSelectCase}
                   selectedCaseId={selectedCaseId}
                 />
               ) : (
-                <StoryJobDetail job={activeJob} />
+                <StoryJobDetail job={job} />
               )}
             </motion.div>
-          </AnimatePresence>
+          ))}
         </div>
       </div>
     </section>
