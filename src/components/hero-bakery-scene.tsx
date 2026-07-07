@@ -70,6 +70,7 @@ export function HeroBakeryScene() {
                   alt=""
                   height={58}
                   src="/images/everyhalf/everyhalf-logo-badge.png"
+                  unoptimized
                   width={58}
                 />
               </span>

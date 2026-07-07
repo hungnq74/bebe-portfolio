@@ -168,6 +168,7 @@ export function EveryHalfPassionPage() {
                   alt="EveryHalf logo"
                   height={82}
                   src="/images/everyhalf/everyhalf-logo-badge.png"
+                  unoptimized
                   width={82}
                 />
               </span>
