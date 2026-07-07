@@ -89,7 +89,7 @@ export function PortfolioCoverGate() {
       <div aria-hidden="true" className="portfolio-cover-seam" />
 
       <div className="portfolio-cover-content">
-        <p className="portfolio-cover-kicker">Creative marketing</p>
+        <p className="portfolio-cover-kicker">Growth marketing</p>
         <h1 className="portfolio-cover-title">Khanh Huyen&apos;s Portfolio</h1>
         <p className="portfolio-cover-hint">Pull the tab below to open</p>
       </div>
